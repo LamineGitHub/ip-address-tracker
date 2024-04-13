@@ -3,13 +3,57 @@
 
 <head>
     <meta charset="UTF-8"/>
+    <meta name="keywords" content="IP locator, IP geolocation, IP address, Internet Service Provider, location"/>
+    <meta name="description"
+          content="Quickly find the location and details of IP addresses with our IP Geolocation Locator. Discover the location, Internet Service Provider (ISP), and more.">
+    <meta name="author" content="Mamadou Lamine Diallo"/>
     <link rel="icon" type="image/svg+xml" href="/images/favicon-32x32.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"/>
+    <link rel="stylesheet" href="/src/style/style.css"/>
+    <title>IP Address Tracker</title>
 </head>
 
 <body>
+<main>
+    <div class="container">
+        <h1>IP Address Tracker</h1>
 
-<script type="module" src="/src/main.ts"></script>
+        <form id="form">
+            <input type="text" id="search" name="search" required
+                   placeholder="Search for any IP address or domain">
+            <button type="submit">
+                <img src="/images/icon-arrow.svg" alt="">
+                <span class="sr-only">Search</span>
+            </button>
+        </form>
+        <div id="error-message" class="error"></div>
+
+        <div class="info">
+            <div class="ip_address">
+                <span>Ip Address</span>
+                <span></span>
+            </div>
+            <div class="location">
+                <span>Location</span>
+                <span></span>
+            </div>
+            <div class="timezone">
+                <span>Timezone</span>
+                <span></span>
+            </div>
+            <div class="isp">
+                <span>ISP</span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="map"></div>
+    </div>
+</main>
+
+<script type="module" src="/src/ts/main.ts"></script>
 </body>
 </html>
