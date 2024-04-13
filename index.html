@@ -19,10 +19,11 @@
 
 <body>
 <main>
+    <div class="bg"></div>
     <div class="container">
         <h1>IP Address Tracker</h1>
 
-        <form id="form">
+        <form class="form">
             <input type="text" id="search" name="search" required
                    placeholder="Search for any IP address or domain">
             <button type="submit">
@@ -37,22 +38,25 @@
                 <span>Ip Address</span>
                 <span></span>
             </div>
+            <hr>
             <div class="location">
                 <span>Location</span>
                 <span></span>
             </div>
+            <hr>
             <div class="timezone">
                 <span>Timezone</span>
                 <span></span>
             </div>
+            <hr>
             <div class="isp">
                 <span>ISP</span>
                 <span></span>
             </div>
         </div>
-
-        <div id="map"></div>
     </div>
+
+    <div id="map"></div>
 </main>
 
 <script type="module" src="/src/ts/main.ts"></script>
