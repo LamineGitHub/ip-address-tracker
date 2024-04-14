@@ -1,4 +1,3 @@
-const errorMessage = document.getElementById("error-message")!;
 const ip_address = document.querySelector(".ip_address span:last-child")!;
 const location = document.querySelector(".location span:last-child")!;
 const timezone = document.querySelector(".timezone span:last-child")!;
@@ -7,6 +6,11 @@ const searchInput = document.querySelector("input")!;
 
 searchInput.addEventListener("focus", function () {
   this.select();
+  const parentClass = this.parentElement?.classList;
+
+  if (parentClass?.contains("is-invalid")) {
+    parentClass.remove("is-invalid");
+  }
 });
 
 export const displayIpDetailsInUI = (ipDetails: IpDetailsType) => {
@@ -16,12 +20,10 @@ export const displayIpDetailsInUI = (ipDetails: IpDetailsType) => {
   isp.textContent = ipDetails.isp;
 };
 
-export const displayErrorMessage = (message: string) => {
-  errorMessage.textContent = message;
-  errorMessage.classList.add("error");
+export const displayError = (form: HTMLFormElement) => {
+  form.classList.add("is-invalid");
 };
 
-export const hideErrorMessage = () => {
-  errorMessage.textContent = "";
-  errorMessage.classList.remove("error");
+export const hideError = (form: HTMLFormElement) => {
+  form.classList.remove("is-invalid");
 };

@@ -1,23 +1,17 @@
-import { displayErrorMessage } from "./ui";
+const baseUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_API_KEY}`;
 
-export const baseUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_API_KEY}`;
-
-export const fetchIPAddress = async () => {
+export const fetchIPAddress = async (): Promise<string | null> => {
   try {
     const response = await fetch("https://api.ipify.org?format=json");
     const { ip } = await response.json();
     return ip;
   } catch (error) {
-    console.error(
-      "Une erreur s'est produite lors de la récupération de l'adresse IP :",
-      error,
-    );
-    return;
+    console.error("An error occurred while retrieving the IP address:", error);
+    return null;
   }
 };
 
 export const fetchIpDetails = async (
-  baseUrl: string,
   ipAddress = "",
   domain = "",
 ): Promise<IpDetailsType | null> => {
@@ -81,7 +75,7 @@ export const fetchIpDetails = async (
     return ipDetails;
     // return await response.json()
   } catch (error) {
-    displayErrorMessage("Error during data recovery");
+    console.error("Error during data recovery :", error);
     return null;
   }
 };

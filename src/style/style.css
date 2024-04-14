@@ -41,6 +41,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+    background-color: #5F86F2;
     z-index: -9999;
 
     @media (max-width: 425px) {
@@ -93,10 +94,15 @@ h1 {
         transition: background-color .2s ease-out;
 
         &:hover {
+            cursor: pointer;
             background-color: #3F3F3F;
         }
     }
+}
 
+form.is-invalid {
+    outline: 1px solid rgb(255, 66, 66);
+    animation: shake-horizontal 200ms cubic-bezier(0.4, 0.1, 0.6, 0.9) 2;
 }
 
 .info {
@@ -166,6 +172,24 @@ hr {
     @media (max-width: 425px) {
         margin-top: -211px;
         height: calc(103dvh - var(--bg-min-height));
+    }
+}
+
+@keyframes shake-horizontal {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60% {
+        transform: translateX(10px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+    90% {
+        transform: translateX(-8px);
     }
 }
 

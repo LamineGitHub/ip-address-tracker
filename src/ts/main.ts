@@ -1,40 +1,38 @@
 import { isValidDomainName, isValidIPAddress } from "./validator";
 import { displayMap } from "./leafletMap";
-import {
-  displayErrorMessage,
-  displayIpDetailsInUI,
-  hideErrorMessage,
-} from "./ui";
-import { baseUrl, fetchIPAddress, fetchIpDetails } from "./ipify";
+import { displayError, displayIpDetailsInUI, hideError } from "./ui";
+import { fetchIPAddress, fetchIpDetails } from "./ipify";
 
-const searchForm = document.querySelector("form")!;
+const formElement = document.querySelector("form")!;
 
-searchForm.addEventListener("submit", async function (e) {
+formElement.addEventListener("submit", async function (e) {
   e.preventDefault();
-  const formData = new FormData(this);
-  const search = formData.get("search") as string | null;
+  const searched = new FormData(this).get("search") as string | null;
 
-  if (!search) return;
+  if (!searched) {
+    displayError(this);
+    return;
+  }
 
   try {
-    if (!isValidIPAddress(search) && !isValidDomainName(search)) {
-      displayErrorMessage("Please enter a valid IP address or domain.");
+    if (!isValidIPAddress(searched) && !isValidDomainName(searched)) {
+      displayError(this);
       return;
     }
 
-    await main(search);
+    await main(searched);
   } catch (error) {
     console.error("Error during data recovery");
     return;
   }
 });
 
-const main = async (search = "") => {
-  let ipAddress = search;
-  let domain = search;
+const main = async (searched = "") => {
+  let ipAddress = searched;
+  let domain = searched;
   let ipDetails: IpDetailsType | null;
 
-  if (!search) {
+  if (!searched) {
     const ip = await fetchIPAddress();
     if (!ip) {
       console.error("Unable to obtain current IP address.");
@@ -43,15 +41,18 @@ const main = async (search = "") => {
     ipAddress = ip;
   }
 
-  hideErrorMessage();
+  hideError(formElement);
 
   if (isValidIPAddress(ipAddress)) {
-    ipDetails = await fetchIpDetails(baseUrl, ipAddress);
+    ipDetails = await fetchIpDetails(ipAddress);
   } else {
-    ipDetails = await fetchIpDetails(baseUrl, "", domain);
+    ipDetails = await fetchIpDetails("", domain);
   }
 
-  if (!ipDetails) return;
+  if (!ipDetails) {
+    displayError(formElement);
+    return;
+  }
 
   displayIpDetailsInUI(ipDetails);
   displayMap(ipDetails);
