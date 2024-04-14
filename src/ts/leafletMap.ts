@@ -21,6 +21,8 @@ export const displayMap = (ipDetails: IpDetailsType) => {
     markerLayer.clearLayers();
   }
 
+  map.zoomControl.remove();
+
   const customIcon = L.icon({
     iconUrl: "images/icon-location.svg",
     iconAnchor: [19, 38],
