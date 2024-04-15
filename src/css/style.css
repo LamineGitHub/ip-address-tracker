@@ -105,10 +105,11 @@ form.is-invalid {
 }
 
 .info {
+    min-height: 161px;
     max-width: 1110px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
     z-index: 999;
 
@@ -162,7 +163,7 @@ hr {
     border: none;
     border-left: 1px solid rgba(0, 0, 0, .15);
     height: 60px;
-    margin-top: 0.5em;
+    margin-top: 0.75em;
 
     @media (max-width: 425px) {
         display: none;
