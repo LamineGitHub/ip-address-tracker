@@ -6,10 +6,10 @@ const searchInput = document.querySelector("input")!;
 
 searchInput.addEventListener("focus", function () {
   this.select();
-  const parentClass = this.parentElement?.classList;
+  const parentClassList = this.parentElement?.classList;
 
-  if (parentClass?.contains("is-invalid")) {
-    parentClass.remove("is-invalid");
+  if (parentClassList?.contains("is-invalid")) {
+    parentClassList.remove("is-invalid");
   }
 });
 
