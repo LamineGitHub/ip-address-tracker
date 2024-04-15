@@ -105,10 +105,10 @@ form.is-invalid {
 }
 
 .info {
-    min-height: 161px;
+    max-width: 1110px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
     z-index: 999;
 
@@ -148,16 +148,21 @@ form.is-invalid {
 
     @media (max-width: 425px) {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         width: 100%;
     }
+}
+
+.timezone {
+    flex-shrink: 0;
 }
 
 hr {
     border: none;
     border-left: 1px solid rgba(0, 0, 0, .15);
     height: 60px;
-    margin-top: 0.75em;
+    margin-top: 0.5em;
 
     @media (max-width: 425px) {
         display: none;
@@ -191,4 +196,3 @@ hr {
         transform: translateX(-8px);
     }
 }
-
