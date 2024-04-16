@@ -30,9 +30,7 @@ Users should be able to:
 
 
 ### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL : [live site](https://ip-address-tracker-mu-plum.vercel.app/)
 
 ## My process
 
@@ -46,6 +44,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
+- LinkedIn - [Mamadou Lamine Diallo](https://www.linkedin.com/in/mamadou-lamine-diallo-1a8596241)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
 
