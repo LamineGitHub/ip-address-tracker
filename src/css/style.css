@@ -172,11 +172,10 @@ hr {
 
 #map {
     margin-top: -63px;
-    min-height: calc(100dvh - var(--bg-min-height));
+    min-height: calc(103dvh - var(--bg-min-height));
 
     @media (max-width: 425px) {
-        margin-top: -200px;
-        min-height: calc(103dvh - var(--bg-min-height))
+        margin-top: -182px;
     }
 }
 
