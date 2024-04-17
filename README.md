@@ -45,5 +45,5 @@ Users should be able to:
 ## Author
 
 - LinkedIn - [Mamadou Lamine Diallo](https://www.linkedin.com/in/mamadou-lamine-diallo-1a8596241)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@Lamine](https://www.frontendmentor.io/profile/LamineGitHub)
 
